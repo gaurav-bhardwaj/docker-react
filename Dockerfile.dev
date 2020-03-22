@@ -4,9 +4,9 @@ FROM node:alpine
 WORKDIR '/app'
 
 # Download and install a dependancy
-COPY package*.json .
+COPY package*.json ./
 RUN npm install
-COPY . .
+COPY ./ ./
 # Tell the image what to do when it starts # as a container
 
 CMD ["npm","run", "start"]
