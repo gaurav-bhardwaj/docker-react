@@ -16,6 +16,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "prepublish": "npm test && npm run lint && npm run build && npm run tsdef",
   "eslintConfig": {
     "extends": "react-app"
   },
