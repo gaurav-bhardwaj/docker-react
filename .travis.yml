@@ -8,13 +8,15 @@ before_install:
 script:
   - docker run gaurav-bhardwaj/docker-react npm run test -- --coverage
 
-deploy:
-  provider: elasticbeanstack
+before_deploy: "echo 'ready?'"
+
+travis_wait 50 deploy:
+  provider: elasticbeanstalk
   region: "ap-south-1"
   app: "docker-react"
   environment: "DockerReact-env"
-  bucket-name: "elasticbeanstalk-ap-south-1-204750130783"
-  bucket-path: "docker-react"
+  bucket_name: "elasticbeanstalk-ap-south-1-204750130783"
+  bucket_path: "docker-react"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
